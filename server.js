@@ -1,10 +1,13 @@
 const express = require("express");
 require("dotenv").config();
 
-// Connect to database
-
 const app = express();
 
+// Connect to database
+const connectDB = require("./config/db");
+connectDB();
+
+// These middlewares are for parsing request body
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
